@@ -3,7 +3,7 @@ var GameLogicService = angular.module('GameLogicService', []);
 const EVEN = 2,
       TIE = "TIE";
 
-GameLogicService.service('GameLogic', ['HandType', 'Maths', function(Hands, Maths){
+GameLogicService.service('GameLogic', function(){
 
     this.determineWinningPlayer = function(playerOne, playerTwo) {
 
@@ -19,7 +19,7 @@ GameLogicService.service('GameLogic', ['HandType', 'Maths', function(Hands, Math
         else
             return getHigherValueHand(playerOne, playerTwo);
     }
-}]);
+});
 
 function handsAreEqual(handOne, handTwo) {
     return handOne == handTwo;
