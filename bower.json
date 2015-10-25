@@ -1,0 +1,24 @@
+{
+  "name": "rock-paper-scissors",
+  "description": "rock-paper-scissors",
+  "main": "index.js",
+  "authors": [
+    "Matt"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mattphillips/rock-paper-scissors",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.7"
+  }
+}
