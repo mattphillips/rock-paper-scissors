@@ -1,21 +1,42 @@
 var GameLogicService = angular.module('GameLogicService', []);
 
 const EVEN = 2,
-      ZERO = 0,
       TIE = "TIE";
 
 GameLogicService.service('GameLogic', ['HandType', 'Maths', function(Hands, Maths){
 
     this.determineWinningPlayer = function(playerOne, playerTwo) {
 
-        var diff = playerOne.getHand().getValue() - playerTwo.getHand().getValue();
+        var handOne = playerOne.getHand();
+        var handTwo = playerTwo.getHand();
 
-        if (diff == ZERO)
+        if (handsAreEqual(handOne, handTwo))
             return TIE;
 
-        var numberOfHandTypes = Hands.hands.length;
-        var remainder = Maths.mod(diff, numberOfHandTypes);
+        if (handsAreBothEvenOrOdd(handOne, handTwo))
+            return getLowerValueHand(playerOne, playerTwo);
 
-        return Maths.mod(remainder, EVEN) == ZERO ? playerTwo : playerOne;
+        else
+            return getHigherValueHand(playerOne, playerTwo);
     }
 }]);
+
+function handsAreEqual(handOne, handTwo) {
+    return handOne == handTwo;
+}
+
+function handsAreBothEvenOrOdd(handOne, handTwo) {
+    return mod(handOne.getValue()) == mod(handTwo.getValue());
+}
+
+function mod(value) {
+    return value % EVEN;
+}
+
+function getLowerValueHand(playerOne, playerTwo) {
+    return playerOne.getHand().getValue() < playerTwo.getHand().getValue() ? playerOne : playerTwo;
+}
+
+function getHigherValueHand(playerOne, playerTwo) {
+    return playerOne.getHand().getValue() > playerTwo.getHand().getValue() ? playerOne : playerTwo;
+}
