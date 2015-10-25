@@ -6,9 +6,4 @@ MathService.service('Maths', function(){
     this.getRandomNumber = function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
-    // js Modulus does not play nice with negatives
-    this.mod = function(m, n) {
-         return ((m % n) + n) % n;
-    }
 });
