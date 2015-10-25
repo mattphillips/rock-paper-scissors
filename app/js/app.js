@@ -7,12 +7,14 @@ var rpsApp = angular.module('rpsApp', [
     ]
 );
 
-
 rpsApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider
         .when('/', {
             templateUrl: 'templates/home.tpl.html'
+        })
+        .when('/new-game', {
+            templateUrl: 'templates/new-game.tpl.html'
         });
     }
 ]);
