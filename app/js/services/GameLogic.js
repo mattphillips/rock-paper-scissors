@@ -26,10 +26,10 @@ function handsAreEqual(handOne, handTwo) {
 }
 
 function handsAreBothEvenOrOdd(handOne, handTwo) {
-    return mod(handOne.getValue()) == mod(handTwo.getValue());
+    return getEvenOrOdd(handOne.getValue()) == getEvenOrOdd(handTwo.getValue());
 }
 
-function mod(value) {
+function getEvenOrOdd(value) {
     return value % EVEN;
 }
 
