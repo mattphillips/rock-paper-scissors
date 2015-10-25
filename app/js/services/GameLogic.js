@@ -1,7 +1,8 @@
 var GameLogicService = angular.module('GameLogicService', []);
 
 const EVEN = 2,
-      ZERO = 0;
+      ZERO = 0,
+      TIE = "TIE";
 
 GameLogicService.service('GameLogic', ['HandType', 'Maths', function(Hands, Maths){
 
@@ -10,7 +11,7 @@ GameLogicService.service('GameLogic', ['HandType', 'Maths', function(Hands, Math
         var diff = playerOne.getHand().getValue() - playerTwo.getHand().getValue();
 
         if (diff == ZERO)
-            return "tie";
+            return TIE;
 
         var numberOfHandTypes = Hands.hands.length;
         var remainder = Maths.mod(diff, numberOfHandTypes);
