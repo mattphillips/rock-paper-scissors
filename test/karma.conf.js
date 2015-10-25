@@ -28,19 +28,15 @@ module.exports = function(config){
             suite: 'unit'
         },
 
-    reporters: ['progress', 'coverage'],
+        reporters: ['progress', 'coverage'],
 
-    preprocessors: {
-      // source files, that you wanna generate coverage for
-      // do not include tests or libraries
-      // (these files will be instrumented by Istanbul)
-      'test/unit/**/*.js': ['coverage']
-    },
+        preprocessors: {
+            'app/js/**/*.js': ['coverage']
+        },
 
-    // optionally, configure the reporter
-    coverageReporter: {
-      type : 'html',
-      dir : 'test/coverage/'
-    }
+        coverageReporter: {
+            type : 'html',
+            dir : 'test/coverage/'
+        }
     });
 };
